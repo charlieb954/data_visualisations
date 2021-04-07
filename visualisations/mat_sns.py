@@ -28,6 +28,9 @@ print(plt.get_fignums()) # return a list of all the figures stored in memory
 plt.close('all') # close all figures
 
 def mat_subplots():
+    x = df['month']
+    y = df['data']
+
     # create figure and 4 subplots, unpack in the variable names
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(8,8))
 
@@ -35,9 +38,8 @@ def mat_subplots():
     ax1.set_title("simple scatter")
     ax1.set_xlabel("month")
     ax1.set_ylabel("random_data")
-    x = df['month']
-    y = df['data']
-    ax1.scatter(x=x, y=y, c = y,
+
+    ax1.scatter(x=x, y=y, c=y,
             cmap = 'YlGnBu')
     ax1.grid(color='#95a5a6', linestyle='--', linewidth=2, axis='y', alpha=0.7)
 
@@ -45,8 +47,8 @@ def mat_subplots():
     ax2.set_title("simple histogram")
     ax2.set_xlabel("month")
     ax2.set_ylabel("count")
-    data = [randint(1,13) for i in range(0,1000)]
-    ax2.hist(x=data,        
+
+    ax2.hist(x=y,
             color = 'cyan',
             edgecolor = 'darkblue')
 
